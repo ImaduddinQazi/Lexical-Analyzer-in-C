@@ -1,6 +1,7 @@
-#include <stdio.h>
+#include <ctype.h>    // for isdigit(), isalpha()
+#include <stdbool.h>  // for boolean values (true or flase)
+#include <stdio.h>    
+#include <stdlib.h>  // for malloc()
+#include <string.h>  // for strlen(), strcmp(), strncpy()
 
-int main() {
-    printf("Hello, World!\\n");
-    return 0;
-}
+#define MAX_LENGTH 100
