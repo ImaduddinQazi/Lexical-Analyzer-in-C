@@ -7,18 +7,18 @@
 #define MAX_LENGTH 100
 
 //function to check if character is a Delimiter
-bool isDelimiter(char chr){
-    return (chr == ' ' || chr == '+' || chr == '-'
-        || chr == '*' || chr == '/' || chr == ','
-        || chr == ';' || chr == '%' || chr == '>'
-        || chr == '<' || chr == '=' || chr == '('
-        || chr == ')' || chr == '[' || chr == ']'
-        || chr == '{' || chr == '}');
+bool isDelimiter(char ch){
+    return (ch == ' ' || ch == '+' || ch == '-'
+        || ch == '*' || ch == '/' || ch == ','
+        || ch == ';' || ch == '%' || ch == '>'
+        || ch == '<' || ch == '=' || ch == '('
+        || ch == ')' || ch == '[' || ch == ']'
+        || ch == '{' || ch == '}');
     }
 
 //function to check if character is an Operator
-bool isOperator(char chr){
-    return (chr == '+' || chr == '-' || chr == '*'
-        || chr == '/' || chr == '>' || chr == '<'
-        || chr == '=');
+bool isOperator(char ch){
+    return (ch == '+' || ch == '-' || ch == '*'
+        || ch == '/' || ch == '>' || ch == '<'
+        || ch == '=');
     }
