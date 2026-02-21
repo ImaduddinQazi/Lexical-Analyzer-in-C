@@ -56,3 +56,15 @@ bool isKeyword(char* str)
     }
     return false;
 }
+
+// function to check interger
+bool isInteger(char* str){
+    if (str == NULL || *str == '\0'){
+        return false;
+    }
+    int i=0;
+    while(isdigit(str[i])){
+        i++;
+    }
+    return str[i]=='\0';
+}
