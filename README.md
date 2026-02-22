@@ -12,8 +12,10 @@ Takes a C-like expression as input and breaks it down into tokens:
 - Unidentified tokens (e.g. 0y)
 
 ## How to run
+```
 gcc lexer.c -o lexer
 ./lexer
+```
 
 ## Sample Output
 For Expression "int a = b + c":
