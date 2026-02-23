@@ -68,3 +68,63 @@ bool isInteger(char* str){
     }
     return str[i]=='\0';
 }
+
+//function to trim substring from a given String
+// start and end are two parameters given to the function
+char* getSubstring(char* str, int start, int end){
+    int sublength= end - start + 1;
+    char* subStr=(char*)malloc((sublength+1)*(sizeof(char)));
+    strncpy(subStr, str+start, sublength);
+    subStr[sublength]='\0';
+    return subStr;
+}
+
+//function that takes input
+int lexicalAnalyzer(char* input){
+    int left=0; 
+    int right=0;
+    int len=strlen(input);
+
+    while(right<=len && left<=right){
+        if(!isDelimiter(input[right])){
+            right++;
+        }
+        if(isDelimiter(input[right]) && left==right){
+            if(isOperator(input[right])){
+                printf("Token: Operator, Value: %c\n", input[right]);
+            }
+            right++;
+            left=right;
+        }
+        else if ((isDelimiter(input[right]) && left!=right) || (right!=len && left!=right)){
+            char* subStr=getSubstring(input, left, right-1);
+
+            if(isKeyword(subStr)){
+                printf("Token: Keyword, Value: %s\n", subStr);
+            }
+            else if(isInteger(subStr)){
+                printf("Token: Integer, Value: %s\n", subStr);
+            }
+            else if(isValidIdentifier(subStr) && !isDelimiter(input[right-1])){
+                printf("Token: Identifier, Value: %s\n", subStr);
+            }
+            else if(!isValidIdentifier(subStr) && !isDelimiter(input[right-1])){
+                printf("Token: UnIdentified, Value: %s\n", subStr);
+                left==right;
+            }
+        }
+        return 0;
+    }
+
+}
+
+//main function
+int main(){
+    //input
+    char lex_input[MAX_LENGTH]="int a = x + y";
+    printf("For expression \"%s\":\n", lex_input);
+    lexicalAnalyzer(lex_input);
+    printf(" \n");
+
+    return 0;
+}
