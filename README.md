@@ -19,11 +19,17 @@ gcc lexer.c -o lexer
 
 ## Sample Output
 For Expression "int a = b + c":
+
 Token: Keyword,    Value: int
+
 Token: Identifier, Value: a
+
 Token: Operator,   Value: =
+
 Token: Identifier, Value: b
+
 Token: Operator,   Value: +
+
 Token: Identifier, Value: c
 
 ## Concepts practiced
