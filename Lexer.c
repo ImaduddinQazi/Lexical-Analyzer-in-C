@@ -96,7 +96,7 @@ int lexicalAnalyzer(char* input){
             right++;
             left=right;
         }
-        else if ((isDelimiter(input[right]) && left!=right) || (right!=len && left!=right)){
+        else if ((isDelimiter(input[right]) && left!=right) || (right==len && left!=right)){
             char* subStr=getSubstring(input, left, right-1);
 
             if(isKeyword(subStr)){
@@ -110,11 +110,11 @@ int lexicalAnalyzer(char* input){
             }
             else if(!isValidIdentifier(subStr) && !isDelimiter(input[right-1])){
                 printf("Token: UnIdentified, Value: %s\n", subStr);
-                left==right;
             }
+            left=right;
         }
-        return 0;
     }
+    return 0;
 
 }
 
